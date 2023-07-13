@@ -1,2 +1,10 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<header>
+    <h1>Secret Sharer</h1>
+</header>
+
+<form method="POST" action="/items">
+    <label>Title<input name="title" /></label>
+    
+    <label>Content<textarea name="content"></textarea></label>
+    <input type="submit" value="Submit" />
+</form>
