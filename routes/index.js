@@ -3,7 +3,6 @@ var router = express.Router();
 
 const itemStore = require('../models/items-store');
 
-
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
