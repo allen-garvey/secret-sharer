@@ -17,11 +17,17 @@ router.post('/items', function(req, res, next) {
 
 router.get('/items/:id', function(req, res, next) {
   const item = itemStore.get(req.params.id);
+  if(!item){
+    return next({status: 404});
+  }
   res.render('items/show', { item });
 });
 
 router.get('/items/:id/json', function(req, res, next) {
   const item = itemStore.get(req.params.id);
+  if(!item){
+    return res.sendStatus(404);
+  }
   res.json(item);
 });
 
