@@ -20,4 +20,9 @@ router.get('/items/:id', function(req, res, next) {
   res.render('items/show', { item });
 });
 
+router.get('/items/:id/json', function(req, res, next) {
+  const item = itemStore.get(req.params.id);
+  res.json(item);
+});
+
 module.exports = router;
