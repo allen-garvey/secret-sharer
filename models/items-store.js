@@ -4,10 +4,13 @@ const THREE_HOURS = 1000 * 60 * 60 * 3;
 
 const store = new Map();
 
+const getIdGenerator = (isProd) => isProd ? uuidv4 : () => Math.ceil(Math.random() * 1000).toString();
+
 const setItem = (item) => {
+    const idGenerator = getIdGenerator(process.env.NODE_ENV === 'production');
     let id;
     do {
-        id = uuidv4();
+        id = idGenerator();
     } while(store.has(id));
 
     store.set(id, item);

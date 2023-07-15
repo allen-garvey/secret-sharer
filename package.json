@@ -3,11 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "prod": "NODE_ENV=production PORT=6099 forever start ./bin/www",
+    "prod:stop": "forever stopall"
   },
   "dependencies": {
     "debug": "~4.3.4",
     "express": "~4.18.2",
+    "forever": "^4.0.3",
     "hbs": "~4.2.0",
     "http-errors": "~2.0.0",
     "morgan": "~1.10.0",
