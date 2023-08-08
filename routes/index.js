@@ -31,4 +31,12 @@ router.get('/items/:id/json', function(req, res, next) {
   res.json(item);
 });
 
+router.get('/items/:id/content/txt', function(req, res, next) {
+  const item = itemStore.get(req.params.id);
+  if(!item){
+    return res.sendStatus(404);
+  }
+  res.send(item.content);
+});
+
 module.exports = router;
